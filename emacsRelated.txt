@@ -1,0 +1,4 @@
+1 to get sudo priviledge in dired minor mode using c-x c-f /sudo::/path
+
+
+
