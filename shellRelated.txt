@@ -1,0 +1,4 @@
+1.check which process is occupying the specified port using
+command  lsof -i port
+
+2
