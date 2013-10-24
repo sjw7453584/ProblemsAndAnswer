@@ -1,4 +1,10 @@
-1 to get sudo priviledge in dired minor mode using c-x c-f /sudo::/path
+1 to get sudo priviledge in dired minor mode using c-x c-f
+/sudo::/path
+
+2 to use ff-find-other-file need to customize
+cc-search-directories or ff-search-dierctories
+
+3
 
 
 
