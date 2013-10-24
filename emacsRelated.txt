@@ -4,7 +4,23 @@
 2 to use ff-find-other-file need to customize
 cc-search-directories or ff-search-dierctories
 
-3
+3 Saving Positions in Registers
+
+C-x r <SPC> r
+    Record the position of point and the current buffer in register r (point-to-register).
+C-x r j r
+    Jump to the position and buffer saved in register r
+    (jump-to-register). 
+	
+4 The Mark Ring
+
+C-<SPC> C-<SPC>
+    Set the mark, pushing it onto the mark ring, without activating it.
+C-u C-<SPC>
+    Move point to where the mark was, and restore the mark from the ring of former marks. 
+
+	
+	
 
 
 
