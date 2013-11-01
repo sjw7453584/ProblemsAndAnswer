@@ -1,0 +1,20 @@
+add "export
+PKG_CONFIG_PATH=/usr/lib/pkgconfig:/usr/local/lib/pkgconfig"
+to .bash_profile
+
+install automake autoconf libtool
+
+tar -zxvf  vlc-2.0.8a.tar.xz
+cd vlc-2.0.8a
+run ./configure then it will complain that some package is
+required;find these package in
+10.239.116.175:/Public/CentOS/vlc/
+
+note:while configure ffmpeg you need to run configure with
+--enable-gpl --enable-pic
+
+in the last there will be only one dependency unresolved --
+openGL,still unresolved but it doesn't matter;you just run
+with --disable-glx to avoid this configure error.then rum
+make,sudo make install .as far,it's done without skins.
+
