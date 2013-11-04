@@ -1,3 +1,25 @@
 1,get linux release version : cat /etc/issue   lsb_release -a
 2,get linux kernel version cat /proc/version uanme -a
 3,mount usb: cat /proc/partions mount -t vfat /dev/sd* /mnt/*
+
+4 ubuntu安装五笔输入法(ibus-table-wubi)
+IBus-Table是为基于码表的输入法即所谓的形码开发的输入。
+
+安装如下：
+# apt-get install ibus-table-wubi
+
+开启ibus输入法，按操作提示即可。
+System - Preferences - Keyboard Input Methods
+
+开启完后，回到刚才的配置选项
+Input Method - 选择 Chinese - 五 Wubi86 - Add
+
+在文本框里，ctrl + space即可切换输入法。
+
+默认情况下，ibus-table不开启直接上屏模式（即敲完四个码，没有重码时，直接显示到屏幕上），在五笔输入法下 Ctrl + / 即可。
+
+开机自动启动ibus
+System - Preferences - Startup Applications - Add
+Name: ibus daemon
+Command: /usr/bin/ibus-daemon -d
+Comment: start ibus daemon when gnome start
