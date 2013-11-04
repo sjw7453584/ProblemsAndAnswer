@@ -1,0 +1,2 @@
+1,get linux release version : cat /etc/issue   lsb_release -a
+2,get linux kernel version cat /proc/version uanme -a
