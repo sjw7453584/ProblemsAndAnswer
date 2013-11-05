@@ -23,3 +23,7 @@ System - Preferences - Startup Applications - Add
 Name: ibus daemon
 Command: /usr/bin/ibus-daemon -d
 Comment: start ibus daemon when gnome start
+
+4,get log message under suse :cat /var/log/message; dmesg
+
+5,get log message under ubuntu :cd /var/log 
