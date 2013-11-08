@@ -19,7 +19,7 @@ C-<SPC> C-<SPC>
 C-u C-<SPC>
     Move point to where the mark was, and restore the mark from the ring of former marks. 
 
-	
+5, replace ^M in emacs :C-q C-m RET RET	
 	
 
 
