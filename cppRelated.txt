@@ -1,6 +1,10 @@
 1,macro with varied params: reference url:http://blog.csdn.net/c395565746c/article/details/6612341
 
-2,how to daemonize a process: http://www.lainoox.com/how-to-daemonize-a-process-in-c/
+2,how to daemonize a process:
+http://www.lainoox.com/how-to-daemonize-a-process-in-c/
+
+3 while making ,"c++ command not found "
+sudo zypper in gcc-c++
 
 
 
