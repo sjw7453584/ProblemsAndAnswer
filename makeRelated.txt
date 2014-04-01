@@ -1,0 +1,3 @@
+1,if binary find some shared libs in a fixed location ,then
+these shared libs must have been specified in the Makefile
+of this binary with  link -Xlinker --start-group shared libs -Xlinker --end-group

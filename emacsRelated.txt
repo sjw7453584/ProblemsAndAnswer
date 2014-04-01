@@ -22,5 +22,5 @@ C-u C-<SPC>
 5, replace ^M in emacs :C-q C-m RET RET	
 	
 
-
+6,press c-x # to exit emacsclient from server
 
