@@ -37,3 +37,7 @@ Comment: start ibus daemon when gnome start
 
 7,suse下图形界面进不去
 rm /etc/x11/x11.conf ;startx
+
+8,查看gpu信息：
+lspci |grep VGA   ;
+glxinfo |grep render;
