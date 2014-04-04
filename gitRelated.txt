@@ -1,0 +1,2 @@
+#auto complete for git 
+[ -f ~/.git-bash-completion.sh ] && . ~/.git-bash-completion.sh
