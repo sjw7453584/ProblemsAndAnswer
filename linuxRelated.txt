@@ -41,3 +41,6 @@ rm /etc/x11/x11.conf ;startx
 8,查看gpu信息：
 lspci |grep VGA   ;
 glxinfo |grep render;
+
+9,查看可执行文件的链接库与符号
+ldd ,nm
