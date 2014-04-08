@@ -4,3 +4,7 @@ command  lsof -i port
 2 Linux NFS Mount: wrong fs type, bad option, bad superblock
 on hadoop.bjtu.com:/home/hadoop
 :sudo apt-get install nfs-common;sudo service portmap status
+
+3 add two float in shell
+	strTmp="$AvgDecodeLatency $AvgEncLatency"
+	AvgLatency=$(echo ${strTmp// /+} |bc -l)
