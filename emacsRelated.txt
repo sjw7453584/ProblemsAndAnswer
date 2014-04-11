@@ -24,5 +24,8 @@ C-u C-<SPC>
 
 6,press c-x # to exit emacsclient from server
 
+7 display line number
+M-x linum-mode global-linum-mode
+
 
 
