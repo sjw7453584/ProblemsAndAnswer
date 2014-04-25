@@ -1,0 +1,2 @@
+ERROR: cmake/modules/FindKDE4Internal.cmake not found in
+sudo apt-get install kdelibs5-dev
