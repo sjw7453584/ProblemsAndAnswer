@@ -1,8 +1,12 @@
 #!/bin/bash
+referFile=$1
+if [ "$referFile" = "" ];then
+	referFile="Makefile"
+fi 
 curDir=`pwd`
 projectName=${curDir##*\/}
-echo "(if (file-exists-p \"$curDir/Makefile\")
-(ede-cpp-root-project \"$projectName\" :file \"$curDir/Makefile\"
+echo "(if (file-exists-p \"$curDir/${referFile}\")
+(ede-cpp-root-project \"$projectName\" :file \"$curDir/${referFile}\"
 					  :include-path '( 
 									   " >>~/_emacs/projects.el
 find -iname "*.h"|sed -n 's/\/[-a-zA-Z0-9_]*\.h//'p |sort |uniq |sed -n 's/\.\//"\//'p |sed -n 's/[-\"\/a-zA-Z_]*/&\/"/'p >>~/_emacs/projects.el
