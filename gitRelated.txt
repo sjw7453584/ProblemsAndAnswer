@@ -1,2 +1,7 @@
 #auto complete for git 
 [ -f ~/.git-bash-completion.sh ] && . ~/.git-bash-completion.sh
+
+git clone: fatal: Unable to find remote helper for 'https'
+It looks like not having (lib)curl-devel installed when you install git can cause this.
+
+If you install (lib)curl-devel, and then rebuild/install git, this should solve the problem:

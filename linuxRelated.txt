@@ -44,3 +44,11 @@ glxinfo |grep render;
 
 9,查看可执行文件的链接库与符号
 ldd ,nm
+
+10,命令行设置代理
+http_proxy=proxy.cd.intel.com:911
+https_proxy=$http_proxy
+ftp_proxy=$http_proxy
+export http_proxy
+export_https_proxy
+export ftp_proxy

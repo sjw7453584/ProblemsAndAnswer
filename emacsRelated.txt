@@ -27,5 +27,9 @@ C-u C-<SPC>
 7 display line number
 M-x linum-mode global-linum-mode
 
+8,ls colored display
+alias ls='ls --color=auto'
+
+
 
 
