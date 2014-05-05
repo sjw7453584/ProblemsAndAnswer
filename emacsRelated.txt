@@ -30,6 +30,9 @@ M-x linum-mode global-linum-mode
 8,ls colored display
 alias ls='ls --color=auto'
 
+9,set-clipboard-coding-system utf-8 to paste chinese
+character into emacs buffer
+
 
 
 

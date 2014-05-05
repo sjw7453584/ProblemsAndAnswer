@@ -1,0 +1,2 @@
+1,传递编译参数给configure
+CFLAGS="-g -O0" ./configure
