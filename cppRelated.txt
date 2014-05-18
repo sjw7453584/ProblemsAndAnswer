@@ -6,5 +6,12 @@ http://www.lainoox.com/how-to-daemonize-a-process-in-c/
 3 while making ,"c++ command not found "
 sudo zypper in gcc-c++
 
+4 undefined reference to symbol 'XF86VidModeQueryExtension'
+/usr/lib/gcc/i686-linux-gnu/4.8/../../../i386-linux-gnu/libXxf86vm.so:
+error adding symbols: DSO missing from command line
+
+maybe have something to do with the order of link libraries.
+
+5
 
 
