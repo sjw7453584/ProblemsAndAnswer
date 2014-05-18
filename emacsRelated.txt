@@ -33,6 +33,10 @@ alias ls='ls --color=auto'
 9,set-clipboard-coding-system utf-8 to paste chinese
 character into emacs buffer
 
+10,s dead diaeresis is undefined
+add "(define-key key-translation-map [dead-diaeresis] "\"")" to emacs init file
+http://unix.stackexchange.com/questions/28170/some-keys-are-invalid-on-emacs-when-using-german-keyboard
+
 
 
 
