@@ -55,3 +55,6 @@ export ftp_proxy
 
 11 ubuntu install flashplayer
 sudo apt-get install flashplugin-installer
+
+12 The RandR library and headers were not found (on Ubuntu)
+sudo apt-get install xorg-dev libglu1-mesa-dev
