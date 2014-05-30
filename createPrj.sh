@@ -12,6 +12,10 @@ echo "int main(){return 0;}">$main
 gcc -v $main 2>$gccInfo
 sysInclude=`sed -n "/#include <\.\.\.> search starts here:/,/End of search list/"'p' $gccInfo|grep -v "search"|sed -n 's/[ \t]*//'p|sed -n 's/[-\"\/a-zA-Z_0-9\.+]*/\\"&\\"/'p`
 
+
+project_e=`grep "ede-cpp-root-project \"$projectName\"" ~/_emacs/projects.el`
+
+if [ "$project_e" = "" ];then
 echo "(if (file-exists-p \"$curDir/${referFile}\")
 (ede-cpp-root-project \"$projectName\" :file \"$curDir/${referFile}\"
 					  :include-path '( 
@@ -23,5 +27,27 @@ echo ")
 					  )
 )" >>~/_emacs/projects.el
 
+ede_e=`grep "ede-project-directories" ~/_emacs/projects.el`
+if [ "$ede_e" = "" ];then
+	echo "(setq ede-project-directories (quote (\"$curDir\")))">>~/_emacs/projects.el
+else
+	echo "(add-to-list 'ede-project-directories (quote (\"$curDir\")))">>~/_emacs/projects.el
+fi
+
+ccsearch_e=`grep "cc-search-directories" ~/_emacs/projects.el`
+if [ "$ccsearch_e" = "" ];then
+echo "(setq cc-search-directories (quote ($sysInclude)))">>~/_emacs/projects.el
+fi 
+
+
+semanticdb_e=`grep "semanticdb-project-roots" ~/_emacs/projects.el`
+if [ "$semanticdb_e" = "" ];then
+	echo "(setq semanticdb-project-roots (quote (\"$curDir\")))">>~/_emacs/projects.el
+
+else
+	echo "(add-to-list 'semanticdb-project-roots (quote (\"$curDir\")))">>~/_emacs/projects.el
+fi
+
 rm $main $gccInfo
+fi 
 
