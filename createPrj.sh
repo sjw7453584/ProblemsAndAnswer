@@ -10,7 +10,7 @@ gccInfo=createPrj_test_gccInfo
 
 echo "int main(){return 0;}">$main
 gcc -v $main 2>$gccInfo
-sysInclude=`sed -n "/#include <\.\.\.> search starts here:/,/End of search list/"'p' gcc.out|grep -v "search"|sed -n 's/[ \t]*//'p|sed -n 's/[-\"\/a-zA-Z_0-9\.+]*/\\"&\\"/'p`
+sysInclude=`sed -n "/#include <\.\.\.> search starts here:/,/End of search list/"'p' $gccInfo|grep -v "search"|sed -n 's/[ \t]*//'p|sed -n 's/[-\"\/a-zA-Z_0-9\.+]*/\\"&\\"/'p`
 
 echo "(if (file-exists-p \"$curDir/${referFile}\")
 (ede-cpp-root-project \"$projectName\" :file \"$curDir/${referFile}\"
