@@ -42,10 +42,10 @@ fi
 
 semanticdb_e=`grep "semanticdb-project-roots" ~/_emacs/projects.el`
 if [ "$semanticdb_e" = "" ];then
-	echo "(setq semanticdb-project-roots (quote (\"$curDir\")))">>~/_emacs/projects.el
+	echo "(setq semanticdb-project-roots \"$curDir\")">>~/_emacs/projects.el
 
 else
-	echo "(add-to-list 'semanticdb-project-roots (quote (\"$curDir\")))">>~/_emacs/projects.el
+	echo "(add-to-list 'semanticdb-project-roots \"$curDir\")">>~/_emacs/projects.el
 fi
 
 rm $main $gccInfo
