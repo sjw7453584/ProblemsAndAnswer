@@ -1,0 +1,11 @@
+on ubuntu:
+    Tools:
+
+gcc autoconf automake texinfo libtool git
+
+    libs:
+
+libncurses5-dev libgnutls-dev librsvg2-dev libxpm-dev
+libjpeg62-dev libtiff-dev libgif-dev libqt4-dev libgtk-3-dev
+
+
