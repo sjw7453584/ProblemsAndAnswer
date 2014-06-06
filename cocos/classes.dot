@@ -1,0 +1,18 @@
+#+BEGIN_SRC dot :file test_graphviz.png :cmdline -Kdot -Tpng
+digraph G {
+	// Ret
+	size="8,6"
+	"Ret"[shape=box,color=green,style=filled,fontcolor=red,fillcolor=lightgrey]
+	rank=same
+	"Node"[shape=box,color=green,style=filled,fontcolor=red,fillcolor=lightgrey]
+	"PhysicsBody"[shape=box,color=green,style=filled,fontcolor=red,fillcolor=lightgrey]
+	"PhysicsShape"[shape=box,color=green,style=filled,fontcolor=red,fillcolor=lightgrey]
+	"Ret"->"PhysicsBody"[color=red,style=line]
+	"Ret"->"Node"[color=red,style=line]
+	"Ret"->"PhysicsShape"[color=red,style=line]
+	 
+	"PhysicsWorld"
+
+}
+
+#+END_SRC

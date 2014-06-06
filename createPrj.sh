@@ -29,14 +29,14 @@ echo ")
 
 ede_e=`grep "ede-project-directories" ~/_emacs/projects.el`
 if [ "$ede_e" = "" ];then
-	echo "(setq ede-project-directories (quote (\"$curDir\")))">>~/_emacs/projects.el
+	echo "(setq ede-project-directories  \"$curDir\")">>~/_emacs/projects.el
 else
 	echo "(add-to-list 'ede-project-directories (quote (\"$curDir\")))">>~/_emacs/projects.el
 fi
 
 ccsearch_e=`grep "cc-search-directories" ~/_emacs/projects.el`
 if [ "$ccsearch_e" = "" ];then
-echo "(setq cc-search-directories (quote ($sysInclude)))">>~/_emacs/projects.el
+echo "(setq cc-search-directories  '($sysInclude))">>~/_emacs/projects.el
 fi 
 
 

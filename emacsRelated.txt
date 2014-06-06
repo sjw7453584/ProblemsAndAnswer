@@ -37,6 +37,11 @@ character into emacs buffer
 add "(define-key key-translation-map [dead-diaeresis] "\"")" to emacs init file
 http://unix.stackexchange.com/questions/28170/some-keys-are-invalid-on-emacs-when-using-german-keyboard
 
+11 to use show/hide first to toggle hs-minor-mode ,then
+enable it ,or errors "wrong type argument stringp,nil you'll
+confront"
 
+12auto-pair conflict with graphviz
+(setq graphviz-dot-mode-syntax-table (syntax-table)) 
 
 
