@@ -58,3 +58,8 @@ sudo apt-get install flashplugin-installer
 
 12 The RandR library and headers were not found (on Ubuntu)
 sudo apt-get install xorg-dev libglu1-mesa-dev
+
+
+13 missing codepage or helper program, or other error (forseveral filesystems (e.g. nfs, cifs)
+you might need a /sbin/mount.<type> helper program)
+  sudo apt-get install nfs-common
