@@ -5,3 +5,9 @@ git clone: fatal: Unable to find remote helper for 'https'
 It looks like not having (lib)curl-devel installed when you install git can cause this.
 
 If you install (lib)curl-devel, and then rebuild/install git, this should solve the problem:
+
+
+svn-git
+sudo apt-get install git-svn
+
+git svn clone svnAddr
