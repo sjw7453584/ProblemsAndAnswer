@@ -63,3 +63,7 @@ sudo apt-get install xorg-dev libglu1-mesa-dev
 13 missing codepage or helper program, or other error (forseveral filesystems (e.g. nfs, cifs)
 you might need a /sbin/mount.<type> helper program)
   sudo apt-get install nfs-common
+
+14 rename multi files simultaneously
+  rename 's/\.jpe$/\.jpg/' *.jpe
+http://dithy.blog.163.com/blog/static/16264820720117222484104/
