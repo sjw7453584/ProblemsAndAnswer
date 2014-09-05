@@ -13,7 +13,7 @@ gcc -v $main 2>$gccInfo
 sysInclude=`sed -n "/#include <\.\.\.> search starts here:/,/End of search list/"'p' $gccInfo|grep -v "search"|sed -n 's/[ \t]*//'p|sed -n 's/[-\"\/a-zA-Z_0-9\.+]*/\\"&\\"/'p`
 
 
-project_e=`grep "ede-cpp-root-project \"$projectName\"" ~/_emacs/projects.el`
+project_e=`grep "(if (file-exists-p \"$curDir/${referFile}\"" ~/_emacs/projects.el`
 
 if [ "$project_e" = "" ];then
 echo "(if (file-exists-p \"$curDir/${referFile}\")
@@ -42,10 +42,14 @@ fi
 
 semanticdb_e=`grep "semanticdb-project-roots" ~/_emacs/projects.el`
 if [ "$semanticdb_e" = "" ];then
-	echo "(setq semanticdb-project-roots \"$curDir\")">>~/_emacs/projects.el
+	echo "(setq semanticdb-project-roots \"$curDir\")
+
+">>~/_emacs/projects.el
 
 else
-	echo "(add-to-list 'semanticdb-project-roots \"$curDir\")">>~/_emacs/projects.el
+	echo "(add-to-list 'semanticdb-project-roots \"$curDir\")
+
+">>~/_emacs/projects.el
 fi
 
 rm $main $gccInfo
