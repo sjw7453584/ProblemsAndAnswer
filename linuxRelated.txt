@@ -67,3 +67,20 @@ you might need a /sbin/mount.<type> helper program)
 14 rename multi files simultaneously
   rename 's/\.jpe$/\.jpg/' *.jpe
 http://dithy.blog.163.com/blog/static/16264820720117222484104/
+
+
+15 you have held broken packages
+
+sudo apt-get install --fix-broken
+sudo apt-get autoclean
+sudo apt-get autoremove
+
+
+16,ubuntu can't get into graphics cause of emacs
+sudo find / -iname "emacs*" -exec rm -rf {} +
+then do 15 above
+sudo apt-get install ubuntu-desktop
+
+
+17,upgrade ubuntu cmd
+sudo apt-get install update-manager-cor sudo do-release-upgrade
