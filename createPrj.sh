@@ -29,7 +29,7 @@ echo ")
 
 ede_e=`grep "ede-project-directories" ~/_emacs/projects.el`
 if [ "$ede_e" = "" ];then
-	echo "(setq ede-project-directories  \"$curDir\")">>~/_emacs/projects.el
+	echo "(setq ede-project-directories  '(\"$curDir\"))">>~/_emacs/projects.el
 else
 	echo "(add-to-list 'ede-project-directories (quote (\"$curDir\")))">>~/_emacs/projects.el
 fi
@@ -42,7 +42,7 @@ fi
 
 semanticdb_e=`grep "semanticdb-project-roots" ~/_emacs/projects.el`
 if [ "$semanticdb_e" = "" ];then
-	echo "(setq semanticdb-project-roots \"$curDir\")
+	echo "(setq semanticdb-project-roots '(\"$curDir\"))
 
 ">>~/_emacs/projects.el
 
