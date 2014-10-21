@@ -88,3 +88,5 @@ sudo apt-get install ubuntu-desktop
 
 17,upgrade ubuntu cmd
 sudo apt-get install update-manager-cor sudo do-release-upgrade
+
+18 install develop env on suse sudo zypper --non-interactive in -t pattern Basis-Devel
