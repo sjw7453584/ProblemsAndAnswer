@@ -90,3 +90,5 @@ sudo apt-get install ubuntu-desktop
 sudo apt-get install update-manager-cor sudo do-release-upgrade
 
 18 install develop env on suse sudo zypper --non-interactive in -t pattern Basis-Devel
+
+19 extract files from rpm :rpm2cpio rpmfilename |cpio -vio .to list files in rpm :rpm2cpio rpmfilename|cpio -vt
