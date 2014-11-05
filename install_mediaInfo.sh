@@ -32,7 +32,7 @@ if [ ! -e mediainfo_0.7.63.tar.gz ];then
 	wget -O mediainfo_0.7.63.tar.gz http://downloads.sourceforge.net/project/mediainfo/source/mediainfo/0.7.63/mediainfo_0.7.63.tar.gz?r=http%3A%2F%2Fsourceforge.net%2Fprojects%2Fmediainfo%2Ffiles%2Fsource%2Fmediainfo%2F0.7.63%2F&ts=1371619389&use_mirror=jaist  
 fi
 
-
+wait
 tar -xvf MediaInfo_GUI_0.7.61_GNU_FromSource.tar.bz2
 
 tar -xvf mediainfo_0.7.63.tar.gz
@@ -65,6 +65,7 @@ make clean
 Zen_Make
 sudo make install
 
+cd ../../../../../../
 
 rm -rf mediainfo
 
