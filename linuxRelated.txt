@@ -99,5 +99,7 @@ sudo apt-get install update-manager-cor sudo do-release-upgrade
    3,sudo zypper in ibus-table-wubi
    4,choose haifeng as input method in ibus reference settings through applications->sundry->ibus reference ->input method.
    5,choose haifeng as input method in language/region through  settings->region &language ->input source.
-   
-	
+
+21 modify prompt
+   export PS1="\u@\h:"
+ 
