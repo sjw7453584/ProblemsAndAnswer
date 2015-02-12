@@ -103,3 +103,8 @@ sudo apt-get install update-manager-cor sudo do-release-upgrade
 21 modify prompt
    export PS1="\u@\h:"
  
+22 DB_PAGE_NOTFOUND: Requested page not found
+   need to rebuild rpm database:
+   1,sudo rm /var/lib/rpm/__db*
+   2,sudo rpm --rebuilddb
+   
