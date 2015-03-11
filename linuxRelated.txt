@@ -108,3 +108,5 @@ sudo apt-get install update-manager-cor sudo do-release-upgrade
    1,sudo rm /var/lib/rpm/__db*
    2,sudo rpm --rebuilddb
    
+23 concat multi pdfs to a single pdf
+   gs -q -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sOutputFile=out.pdf 3145_Intro.pdf 3145_Chap{01..14}.pdf 3145_App{A..H}.pdf 3145_AppJ.pdf 3145_Index.pdf
