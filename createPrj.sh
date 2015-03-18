@@ -12,7 +12,7 @@ echo "int main(){return 0;}">$main
 gcc -v $main 2>$gccInfo
 sysInclude=`sed -n "/#include <\.\.\.> search starts here:/,/End of search list/"'p' $gccInfo|grep -v "search"|sed -n 's/[ \t]*//'p|sed -n 's/[-\"\/a-zA-Z_0-9\.+]*/\\"&\\"/'p`
 
-userInclude=`find /usr/include -iname "*.h"|sed -n 's/\/[-a-zA-Z0-9_+]*\.h//'p |sort |uniq |sed -n 's/\//"\//'p |sed -n 's/[-\"\/a-zA-Z_0-9\.+]*/&\/"/'p`
+userInclude=`find /usr/include -type d |sort |uniq |sed -n 's/\//"\//'p |sed -n 's/[-\"\/a-zA-Z_0-9\.+]*/&\/"/'p`
 project_e=`grep "(if (file-exists-p \"$curDir/${referFile}\"" ~/_emacs/projects.el`
 if [ "$project_e" = "" ];then
 echo "(if (file-exists-p \"$curDir/${referFile}\")
