@@ -14,7 +14,6 @@ sysInclude=`sed -n "/#include <\.\.\.> search starts here:/,/End of search list/
 
 
 project_e=`grep "(if (file-exists-p \"$curDir/${referFile}\"" ~/_emacs/projects.el`
-
 if [ "$project_e" = "" ];then
 echo "(if (file-exists-p \"$curDir/${referFile}\")
 (ede-cpp-root-project \"$projectName\" :file \"$curDir/${referFile}\"
@@ -52,6 +51,6 @@ else
 ">>~/_emacs/projects.el
 fi
 
-rm $main $gccInfo
 fi 
+rm $main $gccInfo a.out
 
