@@ -19,7 +19,7 @@ echo "(if (file-exists-p \"$curDir/${referFile}\")
 (ede-cpp-root-project \"$projectName\" :file \"$curDir/${referFile}\"
 					  :include-path '( 
 									   " >>~/_emacs/projects.el
-find -iname "*.h"|sed -n 's/\/[-a-zA-Z0-9_+]*\.h//'p |sort |uniq |sed -n 's/\.\//"\//'p |sed -n 's/[-\"\/a-zA-Z_0-9\.+]*/&\/"/'p >>~/_emacs/projects.el
+find -type d |sort |uniq |sed -n 's/\.\//"\//'p |sed -n 's/[-\"\/a-zA-Z_0-9\.+]*/&\/"/'p >>~/_emacs/projects.el
 
 echo ")
 :system-include-path '( $sysInclude )
