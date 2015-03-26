@@ -110,3 +110,7 @@ sudo apt-get install update-manager-cor sudo do-release-upgrade
    
 23 concat multi pdfs to a single pdf
    gs -q -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sOutputFile=out.pdf 3145_Intro.pdf 3145_Chap{01..14}.pdf 3145_App{A..H}.pdf 3145_AppJ.pdf 3145_Index.pdf
+
+24 a lot of entry missing in ubuntu 14.04 system settings
+   sudo apt-get install unity-control-center 
+   
