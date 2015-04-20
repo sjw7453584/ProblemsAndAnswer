@@ -116,3 +116,9 @@ sudo apt-get install update-manager-core sudo do-release-upgrade
    
 25 no lsb modules found
    sudo apt-get install lsb-core   
+
+26 check wether the system is 64-bit or 32-bit
+   file /bin/ls or getconf LONG_BIT
+
+
+
