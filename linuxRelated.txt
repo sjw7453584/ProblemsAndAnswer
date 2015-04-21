@@ -121,4 +121,5 @@ sudo apt-get install update-manager-core sudo do-release-upgrade
    file /bin/ls or getconf LONG_BIT
 
 
-
+27 package operation failed
+   sudo apt-get clear;sudo apt-get -f install; mv /var/lib/dpkg/info /var/lib/dpkg/info_old;   
