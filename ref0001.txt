@@ -1,0 +1,40 @@
+                                                Ubuntu Give up waiting for root device
+Give up waiting for root device. Common problems: 
+-boot args (cat.proc/cmdline) 
+    -check root delay=(did the system wait long enough?) 
+    -check root=(did teh system wait for the right device?) 
+-miss modules (cat/proc/modules;ls/dev) 
+ALERT! /dev/disk/by-uuid/acc3414d-926c-453c-b458-cf47088d77d2 does not exist.dropping to a shell! 
+
+busybox v1.10.2(ubuntu 1:1.10.2-lubuntu6)bulit-in shell (ash). 
+enter 'help' for a list of built-in commands 
+分析
+一开始不知道怎么办，挑战以下吧。
+1.既然是升级内核的问题，就和升级的内核不兼容或着是硬盘出错有关。
+ （1）.换内核，在Grub中把31-17改到31-15,结果是同样的问题。失败。
+ （2）.那就是硬盘出错了。
+2.根据提示did the system wait long enough?判断是不是等待时间不足？
+  于是在GRUB 中 在 kernel 的内核后 加载 rootdelay=120(这个加到哪从网上查)。失败。
+3.恼了，在 busybox v1.10.2 中开是不是UUID的事，我的linux 的 / (根目录)安装在/dev/sda5上
+   ls -l /dev/disk/by-uuid
+   竟然没有 sda5 的uuid，问题找到。
+解决
+1.不管他，先进系统再说。
+ 直接在GRUB中把 kernel 那句中的 root=uuid=xxxxxxx给他改成 root=/dev/sda5。
+ 成功进入。
+2.至此，可以有两种解决之道，一种是先用着，一种是根本解决之道。
+3.对于先用着，只要把Grub的menu.lst 里面的 root=uuid=xxxxx改成 root=/dev/sda5。这个我不多说，可以搜一下，网上有，也可以给我留言。
+4.对于根本解决之道，请看下面：
+根本解决之道
+1.uuid不存在，那我们只要修复就行了，从网上查，有的说要重装GRUB。直觉告诉我不行。
+2.那我记得有个 fsck 的可以修复硬盘。试试：
+sudo fsck
+的确有错，看了问题要解决了。
+修复一下，重启机器。
+又进不去了，不过这回找到uuid了，就是进不去x-window。那我就再在shell中,fsck一下。
+重启，到进度条的时候，机器自动修复硬盘，看来有希望了。
+呵呵，果然进去了。
+此致全部解决。
+后语：
+是升级写硬盘出错导致此问题。
+如果有问题，给我留言，发邮件都可以。

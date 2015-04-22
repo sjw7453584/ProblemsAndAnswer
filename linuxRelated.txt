@@ -123,3 +123,6 @@ sudo apt-get install update-manager-core sudo do-release-upgrade
 
 27 package operation failed
    sudo apt-get clear;sudo apt-get -f install; mv /var/lib/dpkg/info /var/lib/dpkg/info_old;   
+
+28 fsck at boot time
+   vi /etc/default/rcs    FSCKFIX=yes
