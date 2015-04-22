@@ -126,3 +126,9 @@ sudo apt-get install update-manager-core sudo do-release-upgrade
 
 28 fsck at boot time
    vi /etc/default/rcs    FSCKFIX=yes
+
+29 Ubuntu Give up waiting for root device
+   refer to ref0001.txt   
+
+30 ubuntu login loop
+   refer to ref0002.txt
