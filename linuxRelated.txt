@@ -24,6 +24,11 @@ Name: ibus daemon
 Command: /usr/bin/ibus-daemon -d
 Comment: start ibus daemon when gnome start
 
+under ubuntu 14.04
+sudo apt-get install ibus ibus-clutter ibus-gtk ibus-gtk3 ibus-qt4 ibus-table-wubi
+if im-switch -s ibus failed with "no configuration file" then install im-config
+using im-config -n ibus to enable ibus ,after restart ,choose wubi in  textentry settings.
+
 4,get log message under suse :cat /var/log/message; dmesg
 
 5,get log message under ubuntu :cd /var/log 
