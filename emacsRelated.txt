@@ -44,4 +44,5 @@ confront"
 12auto-pair conflict with graphviz
 (setq graphviz-dot-mode-syntax-table (syntax-table)) 
 
-
+13 to enable ibus in emacs
+LC_CTYPE="zh_CN.UTF-8" emacs
