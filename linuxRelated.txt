@@ -137,3 +137,7 @@ sudo apt-get install update-manager-core sudo do-release-upgrade
 
 30 ubuntu login loop
    refer to ref0002.txt
+
+31 vnc with no desktop and menu
+   use x11vnc instead of vnc4server
+
