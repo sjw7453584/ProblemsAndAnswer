@@ -141,3 +141,5 @@ sudo apt-get install update-manager-core sudo do-release-upgrade
 31 vnc with no desktop and menu
    use x11vnc instead of vnc4server
 
+32 vmware 10 serial number
+NG42J-423D3-7Z6Q0-5LAX6-02WQ5   
