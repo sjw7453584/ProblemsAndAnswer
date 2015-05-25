@@ -60,7 +60,7 @@ export ftp_proxy
 
 11 ubuntu install flashplayer
 sudo apt-get install flashplugin-installer
-
+or sudo cp lib.so to /usr/lib/mozilla/plugins
 tar -zxvf .tar.gz
 sudo cp -r usr/* /usr
 sudo cp lib /usr/lib/mozila/plugins
