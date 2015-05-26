@@ -65,6 +65,12 @@ tar -zxvf .tar.gz
 sudo cp -r usr/* /usr
 sudo cp lib /usr/lib/mozila/plugins
 
+centos install flashplayer
+tar -zxvf .tar.gz
+sudo cp -r usr/* /usr
+sudo cp lib ~/.mozila/plugins
+
+
 12 The RandR library and headers were not found (on Ubuntu)
 sudo apt-get install xorg-dev libglu1-mesa-dev
 
