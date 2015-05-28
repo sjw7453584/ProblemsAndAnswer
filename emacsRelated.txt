@@ -46,3 +46,8 @@ confront"
 
 13 to enable ibus in emacs
 LC_CTYPE="zh_CN.UTF-8" emacs
+
+
+14 coding system
+describe-coding-system
+revert-buffer-with-coding-system
