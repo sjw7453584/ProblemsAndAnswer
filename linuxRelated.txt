@@ -153,3 +153,10 @@ vmware 11 serial number
 1F04Z-6D111-7Z029-AV0Q4-3AEH8
 
 33 to install emacs24.3 on centos first run centos_installemacs.sh to install dependecies.
+
+
+34 lauch telnet service :
+use chkconfig --list to check whether xinetd is on or off.use sudo chkconfig xinetd on if off.
+service xinetd start
+sudo yum install telnet-server.x86_64 if not installed yet.
+iptables -F to close firewall
