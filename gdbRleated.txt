@@ -1,0 +1,3 @@
+1,to check gdb's built-in variable
+using show command ,eg, show follow-fork-mode
+
