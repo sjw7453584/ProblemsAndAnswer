@@ -1,0 +1,8 @@
+1:to install svn :sudo apt-get install subversion
+2:to create a repo: svnadmine create dir
+3:to create the dir structure:
+mkdir trunk branches tags in project dir,say hello
+svn import hello file:///repo-dir
+4:svn co to local dir
+5:svn cp trunck branches/br1 to create a new branch br1
+6:svn merge -r 2:4 ../branches/br1 in trunk dir to merge br1 changes since it's branched to trunk;
