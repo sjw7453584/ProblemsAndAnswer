@@ -60,10 +60,16 @@ export ftp_proxy
 
 11 ubuntu install flashplayer
 sudo apt-get install flashplugin-installer
-
+or sudo cp lib.so to /usr/lib/mozilla/plugins
 tar -zxvf .tar.gz
 sudo cp -r usr/* /usr
 sudo cp lib /usr/lib/mozila/plugins
+
+centos install flashplayer
+tar -zxvf .tar.gz
+sudo cp -r usr/* /usr
+sudo cp lib ~/.mozila/plugins
+
 
 12 The RandR library and headers were not found (on Ubuntu)
 sudo apt-get install xorg-dev libglu1-mesa-dev
@@ -141,3 +147,16 @@ sudo apt-get install update-manager-core sudo do-release-upgrade
 31 vnc with no desktop and menu
    use x11vnc instead of vnc4server
 
+32 vmware 10 serial number
+NG42J-423D3-7Z6Q0-5LAX6-02WQ5
+vmware 11 serial number
+1F04Z-6D111-7Z029-AV0Q4-3AEH8
+
+33 to install emacs24.3 on centos first run centos_installemacs.sh to install dependecies.
+
+
+34 lauch telnet service :
+use chkconfig --list to check whether xinetd is on or off.use sudo chkconfig xinetd on if off.
+service xinetd start
+sudo yum install telnet-server.x86_64 if not installed yet.
+iptables -F to close firewall
