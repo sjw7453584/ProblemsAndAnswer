@@ -6,3 +6,19 @@ svn import hello file:///repo-dir
 4:svn co to local dir
 5:svn cp trunck branches/br1 to create a new branch br1
 6:svn merge -r 2:4 ../branches/br1 in trunk dir to merge br1 changes since it's branched to trunk;
+7:svn 回滚 refer to ref0003.txt
+8:svn resolve --accept
+   1、svn update后，1.txt文件出现冲突，选择base版本，即1.txt.rOld作为最后提交的版本
+   $ svn resolve –accept base
+
+   2.手工修改1.txt文件，然后将当前拷贝即1.txt作为最后提交的版本
+   $ svn resolve –accept working 1.txt
+
+   3.使用1.txt.rNew作为最后提交的版本
+   $ svn resolve –accept theirs-full 1.txt
+
+   4.使用1.txt.mine作为最后提交的版本
+   $ svn resolve –accept mine-full 1.txt
+
+   5.使用1.txt.mine作为最后提交的版本
+   $ svn resolve –accept theirs-conflict 1.txt
