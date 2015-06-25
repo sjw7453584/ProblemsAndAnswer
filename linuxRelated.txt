@@ -160,3 +160,6 @@ use chkconfig --list to check whether xinetd is on or off.use sudo chkconfig xin
 service xinetd start
 sudo yum install telnet-server.x86_64 if not installed yet.
 iptables -F to close firewall
+
+35 find -iregex examples:
+to find files ended with .cpp .h suffix: find -iregex ".*\.\(cpp\|h\)$"

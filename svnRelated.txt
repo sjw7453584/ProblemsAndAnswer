@@ -22,3 +22,4 @@ svn import hello file:///repo-dir
 
    5.使用1.txt.mine作为最后提交的版本
    $ svn resolve –accept theirs-conflict 1.txt
+9 由于文件格式不同引起的大量非编辑diff: use unix2dos to unify format
