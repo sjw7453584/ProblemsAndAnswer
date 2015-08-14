@@ -1,0 +1,75 @@
+一、新建并初始化版本库
+1.新建代码仓库
+# svnadmin create /home/myrepos
+这样，我们就在/home目录下新建了版本库myrepos。
+
+2.初始化代码仓库
+#mkdir -p code/{branches,tags,trunk}
+按照svn手册上的建议，我们版本库的布局采用branches/tags/trunk这样的三个目录。然后可以将代码直接拷贝的trunk目录，也可以随后采用svn add的方式添加。
+ 
+#svn import code file: ///home/myrepos
+将我们构造好的版本库布局（以及代码，如果已经拷贝到trunk下的话）提交到版本库。由于这里我们是在本地操作，因此可以直接使用file协议方式提交。格式为：file:// + 版本库绝对的路径
+ 
+OK，到这里我们已经构建了一个本地版本库，可以再本地使用svn ci的方法得到版本库的副本了。如果前面只是提交了版本库布局，而没有提交代码的话，则可以通过如下命令，提交版本代码：
+#svn co file: ///home/myrepos/trunk repos
+通常只从主线目录trunk下取出源码，放在了新建的repos目录。然后可以将源码拷贝到repos目录。
+执行以下两条命令将代码添加的版本库。
+#svn add *
+#svn ci * -m "Committed codes"
+首先需要将拷贝的代码加入到当前的副本中，然后将代码提交到版本库。
+ 
+二、配置并启动svnserve
+1. 配置svnserve
+这一步主要完成远程用户访问版本的权限。
+在版本库目录下有个conf目录：home/myrepos/conf，该目录包含三个文件：authz，passwd，svnserve.conf。
+（1）svnserve.conf
+ 
+此文件重点的设置内容如下：
+anon-access = read
+auth-access = write
+password-db = passwd
+authz-db = authz
+其中，anon-acces s和auth-access分别代表设置匿名用户和授权用户的访问权限。read代表只读，write代表可读可写，还有一个none，代表禁止访问。如果不想让匿名用户访问的话，可以设置anon-access = none。
+password-db为保存版本库的用户名和密码，通常为conf目录下的passwd文件。
+authz-db指向的文件，主要用于将用户进行分组，并赋予不同的组不同的权限。譬如有多个目录时，设置某个组的用户只可以访问其中的那些目录。
+（2）passwd
+如前面介绍，这个文件的主要内容如下
+[users]
+harry = harrysecret
+sally = sallyssecret
+以上两行就是可以访问版本库的用户名和密码。格式为：user = passwd。
+（3）authz
+[groups]
+# harry_and_sally = harry,sally
+ 
+# [/foo/bar]
+# harry = rw
+# * =
+ 
+# [repository:/baz/fuz]
+# @harry_and_sally = rw
+# * = r
+以上就是authz文件的格式。先给用户分组，然后分别设置每个组的工作目录以及权限等。
+本文的讲解并未用到authz的配置。
+ 
+2. 启动svnserve
+#svnserve -d -r /home/
+svnserve将以守护进程的方式运行。同时，通过-r选项指定了版本库的目录。这个目录可以是版本库的上级目录（/home），也可以是版本库的目录（/home/myrepos）。具体的区别会在后面讲到。当然，也可以不用-r指定。
+ 
+三、远程访问svnserve。
+假设版本服务器的地址为10.1.1.1，那么用户可以在远程linux端输入命令：
+#svn checkout svn://10.1.1.1/myrepos myrepos
+这样版本库的所有内容都被check出来，存放在当前目录myrepos下。这里相当于使用svn协议，不用搭建http服务器。
+ 
+如果启动svnserve的时候，-r选项指定的是版本库的目录，譬如/home/myrepos，那么检出版本的时候，执行的命令为：
+#svn checkout svn://10.1.1.1/ myrepos
+ 
+如果启动svnserve是没有指定-r选项，则要输入版本库的绝对路径：
+#svn checkout svn://10.1.1.1/home/myrepos myrepos
+ 
+四、容易出现的问题
+在访问svnserve时，遇到了不少的问题，大致总结一下：
+1. 这一步最容易避免，一定要记得启动svnserve。
+2. 记得要正确的修改配置文件svnserve.conf和passwd。
+3. 保证版本库服务器没有配置限制远程访问svnserve的规则。有时在访问svn服务器的时候，会提示服务器积极拒绝链接。简单起见，可以看看iptables -L INPUT和iptables -L OUTPUT有没有限制访问的规则。
+4. 要保证输入版本库的URL正确。
