@@ -51,3 +51,5 @@ LC_CTYPE="zh_CN.UTF-8" emacs
 14 coding system
 describe-coding-system
 revert-buffer-with-coding-system
+
+15  call ielm. It will start a interactive elisp command line interface.
