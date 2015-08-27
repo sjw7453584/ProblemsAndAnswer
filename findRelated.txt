@@ -1,0 +1,13 @@
+以下是指定搜索/home/carryf目录下的所有文件，但是会忽略/home/carryf/astetc的路径：
+
+find /home/carryf -path "/home/carryf/astetc" -prune -o -type f -print
+如果按照文件名来搜索则为：
+
+find /home/carryf -path "/home/carryf/astetc" -prune -o -type f -name "cdr_*.conf" -print
+
+如果要忽略两个以上的路径如何处理？
+
+find /home/carryf /( -path "/home/carryf/astetc" -o -path "/home/carryf/etc" /) -prune -o -type f  -print
+find /home/carryf /( -path "/home/carryf/astetc" -o -path "/home/carryf/etc" /) -prune -o -type f  -name "cdr_*.conf" -print
+
+注意/( 和/) 前后都有空格。
