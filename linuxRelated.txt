@@ -163,3 +163,15 @@ iptables -F to close firewall
 
 35 find -iregex examples:
 to find files ended with .cpp .h suffix: find -iregex ".*\.\(cpp\|h\)$"
+
+36 mount ntfs on liunx
+   install ntfs-3g
+   mount -t ntfs-3g /dev/fd*/ /media
+
+37 mount windows share folder
+   use cmd "smbclient -L 172.24.16.195 -U sjw" to check which folders are available
+   use "sudo mount -t cifs -o username=sjw,password=sunjiwen //172.24.16.195/Users /mnt/" to do the real work;
+
+38 layout samba server on linux for windows user's visit
+   /etc/init.d/smb start to start sam server
+   
