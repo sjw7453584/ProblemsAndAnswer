@@ -23,3 +23,11 @@ svn import hello file:///repo-dir
    5.使用1.txt.mine作为最后提交的版本
    $ svn resolve –accept theirs-conflict 1.txt
 9 由于文件格式不同引起的大量非编辑diff: use unix2dos to unify format
+
+10 svn co 找不到指定url :
+在linux服务端:假如你的repo为/home/sunjiwen/svn_test
+svnserve -d -r /home/sunjiwen/
+在客户端 url 为svn://172.24.16.97/svn_test
+
+11 svn 分支及分支合并 请参考ref0004.txt
+12 svn 设置eof为native svn propset svn:eof-style native blackmarketeer.cpp 
