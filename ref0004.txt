@@ -1,0 +1,47 @@
+合并一个分支到主干？
+
+获取一份主干的副本：
+
+svn co svn+ssh://server/path/to/trunk 
+
+获取你需要合并的分支的副本：
+
+svn co svn+ssh://server/path/to/branch/myBranch 
+
+把你当前工作目录换到 “myBranch”，找到“myBranch”的起始版本：
+
+svn log –stop-on-copy 
+
+这会显示你的分支从主干分离出来的点。记住这个数字（就是 rXXXX，XXXX 就是版本号）。
+把你的当前工作目录换到主干，执行一个SVN更新：
+
+svn up 
+
+这会更新你的主干副本到最新版本，并且告诉你最新版本号是多少。也把这个数字记好 （应该是这样的提示“At revision YYYY”，YYYY就是你需要记住的第二个数字）。
+现在我们可以执行SVN合并：
+
+svn merge -rXXXX:YYYY svn+ssh://server/path/to/branch/myBranch 
+
+这会把你的分支中所有的更新放到主干。
+解决所有合并中出现的冲突。
+检查结果：
+
+svn ci -m “MERGE myProject myBranch [XXXX]:[YYYY] into trunk” 
+
+就是这些。现在你把“myBranch”合并到了主干。
+That is it. You have now merged “myBranch” with trunk.
+
+更新
+
+第 2～4 步可以用下面的命令替换：
+
+svn log –stop-on-copy svn+ssh://server/path/to/branch 
+
+额外的东西
+
+分离一个分支比合并一个分支简单的多。这里告诉你怎么做。
+执行一个SVN拷贝：
+
+svn copy svn+ssh://server/path/to/trunk svn+ssh://server/path/to/branch/newBranch -m “Cut branch: newBranch” 
+
+这是所有的内容，希望有所帮助。

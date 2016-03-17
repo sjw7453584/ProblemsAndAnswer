@@ -1,0 +1,25 @@
+insert query result to a new collection
+db.createCollection("test")
+db.getCollection('sourcecollection').find({query},{fields}).forEach(function(info){db.getcollection("destcollection").insert(info)})
+
+db.createCollection("equip_attr")
+db.getCollection('prop_bag_info').find({goods_type:0},{item_id:1,platform_gamesvr_id:1,goods_id:1,strengthen_level:1,
+    inlay_1:1,inlay_2:1,inlay_3:1,inlay_4:1,inlay_5:1,inlay_6:1,fighting:1,extra_attr_type_1:1,extra_attr_value_1:1,
+    extra_attr_star_1:1,extra_attr_type_2:1,extra_attr_value_2:1,
+    extra_attr_star_2:1,extra_attr_type_3:1,extra_attr_value_3:1,
+    extra_attr_star_3:1,extra_attr_type_4:1,extra_attr_value_4:1,
+    extra_attr_star_4:1,extra_attr_type_5:1,extra_attr_value_5:1,
+    extra_attr_star_5:1,extra_attr_type_6:1,extra_attr_value_6:1,
+    extra_attr_star_6:1,strengthen_attr_type_1:1,strengthen_attr_type_2:1,
+    extra_attr_type_1_tmp:1,extra_attr_value_1_tmp:1,
+    extra_attr_star_1_tmp:1,extra_attr_type_2_tmp:1,extra_attr_value_2_tmp:1,
+    extra_attr_star_2_tmp:1,extra_attr_type_3_tmp:1,extra_attr_value_3_tmp:1,
+    extra_attr_star_3_tmp:1,extra_attr_type_4_tmp:1,extra_attr_value_4_tmp:1,
+    extra_attr_star_4_tmp:1,extra_attr_type_5_tmp:1,extra_attr_value_5_tmp:1,
+    extra_attr_star_5_tmp:1,extra_attr_type_6_tmp:1,extra_attr_value_6_tmp:1,
+    extra_attr_star_6_tmp:1,
+    refine_reward_id_1:1,refine_reward_attr_type_1:1,refine_reward_attr_value_1:1,
+    refine_reward_id_2:1,refine_reward_attr_type_2:1,refine_reward_attr_value_2:1,
+    refine_reward_id_3:1,refine_reward_attr_type_3:1,refine_reward_attr_value_3:1,
+    bag_type:1,char_flag:1}).forEach(function(info){db.getCollection("equip_attr").insert(info)})
+	
