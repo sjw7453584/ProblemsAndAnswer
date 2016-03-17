@@ -1,0 +1,77 @@
+CentOS、RedHat、Fedora这样系列的操作系统有一个yumdownloader的工具，可以下载安装包及其源码，例如：
+
+　　
+
+yumdownloader --source kernel
+
+　　上面的语句就会下载到包含内核源码的安装包但是我在执行上述语句的时间却出现“No source RPM for XXX”的提示，后来到网上一查，是因为没配置好路径。
+
+　　要想下载源码包，我们就必须先配置好yum的源码包下载路径，操作如下（需要root权限）：
+
+　　
+
+　　1. 打开/etc/yum.repos.d目录。
+
+　　2. 如果没有CentOS-Source.repo文件就新建一个，有就备份。
+
+　　3.往CentOS-Source.repo插入以下内容：
+
+　　
+复制代码
+
+[base-source]
+name=CentOS-$releasever - Base Source
+baseurl=http://vault.centos.org/6.4/os/Source/
+enabled=1
+
+[updates-source]
+name=CentOS-$releasever - Updates Source
+baseurl=http://vault.centos.org/6.4/updates/Source/
+enabled=1
+
+[extras-source]
+name=CentOS-$releasever - Extras Source
+baseurl=http://vault.centos.org/6.4/extras/Source/
+enabled=1
+
+[centosplus-source]
+name=CentOS-$releasever - Plus Source
+baseurl=http://vault.centos.org/6.4/centosplus/Source/
+enabled=1
+
+复制代码
+
+　　PS：我的CentOS是6.4的，请根据自己CentOS的版本修改baseurl，是6.3就把6.4改为6.3即可。
+
+　　修改完成后，还需要以下语句使之生效：
+
+　　
+
+yum clean all
+yum makecache
+
+　　执行完成后（出现TimeOut就多执行几次），我们就可以用yumdownloader下载源码包了。现在另外一个问题来了，ls、ping之类的工具在哪个安装包里面呢？
+
+　　rpm管理工具可以帮上忙，可以查出这些工具所在的安装包，例如下面这条命令就可以查出ls所在的安装包：
+
+rpm -qf `which ls`
+
+　　
+
+　　PS：引号是Esc下面的那个，而且如果是别名会有问题，所以最好分开成下面这个样子：
+
+[wkq@localhost /]$ which ls
+alias ls='ls --color=auto'
+    /bin/ls
+[wkq@localhost /]$ rpm -qf /bin/ls
+coreutils-8.4-19.el6_4.2.i686
+
+　　知道是哪个软件包后就可以用上面的语句下载ls所在的软件包了：
+
+yumdownloader --source coreutils
+
+　　下载到的文件是一个rpm安装包，还需要以下语句提取源码：
+
+rpm2cpio coreutils-8.4-19.el6_4.2.src.rpm|cpio -id
+
+　　生成的文件之中会有一个压缩文件，用tar解压后即可得到源码。
