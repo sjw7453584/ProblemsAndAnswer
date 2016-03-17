@@ -17,3 +17,4 @@ apply an existing commit to an exsisting branch
 
 git checkout branch
 git cherry-pick commitid
+git remote -v to get remote url 
