@@ -19,3 +19,4 @@ svn commit -m "Revert revision from r28 to r25,because of ..."
 1. svn update，svn log，找到最新版本（latest revision）
 2. 找到自己想要回滚的版本号（rollbak revision）
 3. 用svn merge来回滚： svn merge -r : something
+
