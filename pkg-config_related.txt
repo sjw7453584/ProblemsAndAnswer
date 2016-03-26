@@ -1,0 +1,11 @@
+pkg-config有四个命令来查询gtk的安装情况 地址：http://blog.csdn.net/zdl1016/archive/2008/08/20/2802164.aspx
+     $pkg-config --modversion gtk+    (查看1.2.x版本)
+
+     $pkg-config --modversion gtk+-2.0  (查看 2.x 版本)
+
+     $pkg-config --version (查看pkg-config的版本)
+
+     $pkg-config --list-all |grep gtk (查看是否安装了gtk)
+    我输入pkg-config --modversion gtk+-2.0，提示找不到xproto.pc文件，需要把包含该文件的目录放到PKG_CONFIG_PATH里，搜索了一下，该文件在/usr/share/pkgconfig下，于是更改环境变量成:
+     export PKG_CONFIG=/usr/local/bin/pkg-config
+     export PKG_CONFIG_PATH=/usr/share/pkgconfig:/usr/lib/pkgconfig
