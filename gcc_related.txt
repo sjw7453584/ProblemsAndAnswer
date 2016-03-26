@@ -1,0 +1,60 @@
+从svn checkout svn://gcc.gnu.org/svn/gcc/trunk拿了GCC的最新代码，打算编译了学东西习学习C++ 11的东西，结果在configure的时候出现如下问题：
+    Building GCC requires GMP 4.2+, MPFR 2.3.1+ and MPC 0.8.0+
+    http://www.multiprecision.org/mpc 下载mpc-0.9.tar.gz      
+      ftp://ftp.gnu.org/gnu/gmp/gmp-5.0.1.tar.bz2下载gmp-5.0.1.tar.bz2
+      http://ftp.gnu.org/gnu/mpfr/下载mpfr-3.1.0.tar.xz。
+     先开始安装GMP。解压GMP的压缩包后，得到源代码目录gmp-5.0.1。在该目录的同级目录下建立一个临时的编译目录，这里命名为temp。然后开始配置安装选项，进入temp目录，输入以下命令进行配置：
+
+　　../gmp-5.0.1/configure --prefix=/usr/local/gmp-5.0.1
+
+     make
+
+     sudo make install
+
+     mpfr和mpc的安装方法与gmp类似。不过要注意配置的时候要把gmp与mpfr的依赖关系选项加进去，具体配置命令如下：
+
+　　../mpfr-3.1.0/configure --prefix=/usr/local/mpfr-3.1.0 --with-gmp=/usr/local/gmp-5.0.1
+
+　　../mpc-0.9/configure --prefix=/usr/local/mpc-0.9 --with-gmp=/usr/local/gmp-5.0.1 --with-mpfr=/usr/local/mpfr-3.1.0
+
+　　安装好这三个库之后，就可以正式开始安装gcc了。  
+
+     当然了链接的时候，需要刚刚编译的3个lib。
+
+     export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/mpc-0.9/lib:/usr/local/gmp-5.0.1/lib:/usr/local/mpfr-3.1.0/lib　
+
+     然后是典型的configure，make，install三步曲。
+
+     ../trunk/configure --prefix=/usr/local/gcc-4.7 --enable-threads=posix --disable-checking --disable-multilib --enable-languages=c,c++
+　　--with-gmp=/usr/local/gmp-5.0.1 --with-mpfr=/usr/local/mpfr-3.1.0 --with-mpc=/usr/local/mpc-0.9
+
+      make
+
+      make check（可选）
+
+      sudo make install
+
+	  使用update-alternatives管理我们的GCC版本：
+
+z@GODSON:~$ sudo update-alternatives --install /usr/bin/gcc gcc /usr/gcc-4.4.0/bin/gcc 50
+
+z@GODSON:~$ sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.3 40
+z@GODSON:~$ sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.1 30
+
+这样，我们就已经把我们安装的三个GCC版本向update-alternatives注册了，接下来我们便可以方便地管理各版本切换。
+
+
+
+3.切换版本
+切换版本到gcc-4.4.0:
+
+z@GODSON:~$ sudo update-alternatives --config gcc
+[sudo] password for z:
+
+现有 3 个可选项，它们都提供了“gcc”<
+
+选择 可选项
+-----------------------------------------------
+*+ 1 /usr/gcc-4.4.0/bin/gcc
+2 /usr/bin/gcc-4.3
+3 /usr/bin/gcc-4.1
