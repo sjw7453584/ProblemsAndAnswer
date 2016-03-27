@@ -1,3 +1,18 @@
 1,to check gdb's built-in variable
 using show command ,eg, show follow-fork-mode
 
+
+2,调试程序时，在gdb内p var，会提示
+
+No symbol "var" in current context.
+
+即使没有使用任何编译优化选项，仍然不能查看，放狗搜了一下，可能是这些变量被优化到寄存器中，gdb无法读取。
+
+解决方案：
+
+在编译是加入 ‘-gstabs+’  选项，比如:
+
+g++ -g -Wall  -gstabs+ -o main.o main.cpp
+
+gdb main，就可以查看局部变量了。
+
