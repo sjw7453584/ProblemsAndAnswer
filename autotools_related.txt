@@ -1,0 +1,2 @@
+1:add ': ${CXXFLAGS="-g -O0 -std=c++11 -gstabs+"}' before
+'AC_PROG_CXX' to add compile flags
