@@ -174,4 +174,8 @@ to find files ended with .cpp .h suffix: find -iregex ".*\.\(cpp\|h\)$"
 
 38 layout samba server on linux for windows user's visit
    /etc/init.d/smb start to start sam server
-   
+
+39 create swap
+sudo dd if=/dev/zero of=/swapfile bs=64M count=16
+sudo mkswap /swapfile
+sudo swapon /swapfile
