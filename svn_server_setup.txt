@@ -1,4 +1,4 @@
-一、新建并初始化版本库
+﻿一、新建并初始化版本库
 1.新建代码仓库
 # svnadmin create /home/myrepos
 这样，我们就在/home目录下新建了版本库myrepos。
@@ -73,3 +73,7 @@ svnserve将以守护进程的方式运行。同时，通过-r选项指定了版�
 2. 记得要正确的修改配置文件svnserve.conf和passwd。
 3. 保证版本库服务器没有配置限制远程访问svnserve的规则。有时在访问svn服务器的时候，会提示服务器积极拒绝链接。简单起见，可以看看iptables -L INPUT和iptables -L OUTPUT有没有限制访问的规则。
 4. 要保证输入版本库的URL正确。
+
+
+svn server  支持远程访问命令
+grant all privileges on *.* to root@'%' identifies by 'Sanguo1!';
