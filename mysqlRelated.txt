@@ -1,0 +1,1 @@
+有些机器连接mysql要很长时间可能是名字解析问题，在/etc/my.cnf中加skip-name-resolve
