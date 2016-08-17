@@ -1,1 +1,8 @@
-有些机器连接mysql要很长时间可能是名字解析问题，在/etc/my.cnf中加skip-name-resolve
+1, 有些机器连接mysql要很长时间可能是名字解析问题，在/etc/my.cnf中加skip-name-resolve
+
+2,to enable remote connect
+grant all on *.* to root@"%" identified by "passwd";
+
+3, to set passwd for user
+mysqladmin -u root password "newpass"
+mysqladmin -u root password oldpass "newpass"
