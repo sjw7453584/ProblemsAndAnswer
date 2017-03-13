@@ -151,6 +151,8 @@ sudo apt-get install update-manager-core sudo do-release-upgrade
 NG42J-423D3-7Z6Q0-5LAX6-02WQ5
 vmware 11 serial number
 1F04Z-6D111-7Z029-AV0Q4-3AEH8
+VMware Workstation 12序列号：
+5A02H-AU243-TZJ49-GTC7K-3C61N
 
 33 to install emacs24.3 on centos first run centos_installemacs.sh to install dependecies.
 
