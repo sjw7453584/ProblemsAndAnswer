@@ -53,3 +53,13 @@ describe-coding-system
 revert-buffer-with-coding-system
 
 15  call ielm. It will start a interactive elisp command line interface.
+
+16 install emacs from source , font ugly, need to configure --with-xft
+
+17 compile buffer color mess, add the following code to .emacs
+(require 'ansi-color)
+(defun colorize-compilation-buffer ()
+  (let ((inhibit-read-only t))
+    (ansi-color-apply-on-region (point-min) (point-max))))
+(add-hook 'compilation-filter-hook 'colorize-compilation-buffer)
+
