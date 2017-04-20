@@ -63,3 +63,17 @@ revert-buffer-with-coding-system
     (ansi-color-apply-on-region (point-min) (point-max))))
 (add-hook 'compilation-filter-hook 'colorize-compilation-buffer)
 
+
+18 modify semantic/bovine/c-by.el's namespace-symbol to support global namespace ;
+details: (punctuation
+"\\'[:]\\'""
+punctuation
+"\\'[:]\\'""
+namespace-symbol
+,(semantic-lambda
+(list
+concat 
+"::"
+(car
+(nth 2 vals)))))
+)
